@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/data/jpa
-       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+       http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
     <bean id="dataSource" class="com.microsoft.sqlserver.jdbc.SQLServerDataSource">
@@ -29,10 +32,14 @@
                 <prop key="hibernate.hbm2ddl.auto">validate</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.defaul_schema">dbo</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
             </props>
         </property>
+
     </bean>
 
     <jpa:repositories base-package="dao" entity-manager-factory-ref="entityManagerFactory"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

@@ -15,7 +15,7 @@ public class User {
     private long id;
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "TUser")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
     private List<ListPosition> positions;
 
     public long getId() {
