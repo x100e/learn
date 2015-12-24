@@ -15,7 +15,7 @@ public class User {
     private long id;
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "id")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<ListPosition> positions;
 
     public long getId() {
@@ -47,7 +47,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", positions=" + positions +
+//                ", positions=" + positions +
                 '}';
     }
 }

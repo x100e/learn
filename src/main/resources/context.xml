@@ -38,6 +38,11 @@
 
     </bean>
 
+    <bean id="test" class="test.Test">
+        <constructor-arg name="userRepository" ref="userRepository"/>
+        <constructor-arg name="listPositionRepository" ref="listPositionRepository"/>
+    </bean>
+
     <jpa:repositories base-package="dao" entity-manager-factory-ref="entityManagerFactory"/>
 
     <tx:annotation-driven transaction-manager="transactionManager"/>

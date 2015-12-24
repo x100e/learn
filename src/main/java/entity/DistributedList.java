@@ -1,5 +1,9 @@
 package entity;
 
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.Set;
 
@@ -8,9 +12,13 @@ import java.util.Set;
  */
 public class DistributedList {
 
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "<to_define>")
     private List<ListPosition> positions;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "<to_define>")
     private Set<User> users;
 
     public DistributedList(String name) {

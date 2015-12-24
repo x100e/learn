@@ -13,8 +13,8 @@ public class ListPosition {
     private long id;
     private String name;
     private int qty;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = true)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "userId")
     private User user;
     private boolean done;
 
